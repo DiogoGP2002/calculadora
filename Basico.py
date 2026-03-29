@@ -1,64 +1,39 @@
-# Criando as funções
+#Codigo otimizado
+print('='*20)
+print("calculadora")
+print('='*20)
 
-def soma(a, b):
-    return a + b
-
-
-def subtracao(a, b):
-    return a - b
-
-
-def divisao(a, b):
-    if b != 0:
-        return a / b
-    else:
-        print("Erro: divisão por zero!\n")
-        return 0
-
-
-def multiplicacao(a, b):
-    return a * b
-
-
-# Ajustando as opções
-print(" ====== [ CALCULADORA ] ====== \n")
-print(" ========== [ MENU ] ========= \n")
-print(" [1] = SOMA \n")
-print(" [2] = SUBTRAÇÃO \n")
-print(" [3] = DIVISÃO \n")
-print(" [4] = MULTIPLICAÇÃO \n")
-print(" [0] = SAIR \n")
-
-# Verificando se a opção é verdadeira
+print('[ MENU ]'.center(20, '='))
+print('[1] = SOMA')
+print('[2] = SUBTRAÇÃO')
+print('[3] = DIVISÃO')
+print('[4] = MULTIPLICAÇÃO')
+print('[5] = EXPODENCIAÇÃO')
+print('[0] = SAIR')
 try:
-    Op = int(input("Digite sua opção: "))
-    print("\n")
+    Op = int(input('Digite sua opção: '))
+    if (Op >= 0 and Op <=5):
 
-    if Op == 0:
-        print("Programa encerrado!!")
+        n1 = float(input('Digite um número: '))
+        n2 = float(input('Digite o segundo número: '))
 
-    elif 1 <= Op <= 4:
-        N1 = float(input("Digite o primeiro número: "))
-        N2 = float(input("Digite o segundo número: "))
-
-        match Op:
+        match(Op):
             case 1:
-                operador = "soma"
-                resultado = soma(N1, N2)
+                print(f'A soma entre {n1} + {n2} = [{n1 + n2}]')
             case 2:
-                operador = "subtração"
-                resultado = subtracao(N1, N2)
+                print(f'A subtração entre {n1} - {n2} = [{n1 - n2}]')
             case 3:
-                operador = "divisão"
-                resultado = divisao(N1, N2)
-            case 4:
-                operador = "multiplicação"
-                resultado = multiplicacao(N1, N2)
-
-        print(f"O resultado da {operador} entre {N1} e {N2} é: {resultado}")
-
+                print(f'A multiplicação entre {n1} x {n2} = [{n1 * n2}]')
+            case 4:  
+                if n2 != 0:
+                    print(f'A divisão entre {n1} / {n2} = [{n1 / n2:.2f}]')
+                else:
+                    print('ERRO : Divisão por zero!')
+            case 5: 
+                print(f'A exponenciação de {n1} ** {n2} = [{n1**n2}]')
+            case 0: 
+                print("Você saiu do programa")
     else:
-        print("Opção inválida!!")
-
-except ValueError:
-    print("Você digitou um valor inválido!")
+        print('Opção invalida!')
+except ValueError: 
+    print('ERRO ! Digite um número')
